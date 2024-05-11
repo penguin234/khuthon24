@@ -32,8 +32,8 @@ const PORT = 80
 
 const database = require('./database/index')
 
-app.use(express.static('public'))
-app.use(express.static('front/build'))
+app.use(express.static(path.join(__dirname, '/public')))
+app.use('/public', express.static(path.join(__dirname, '/public')))
 
 app.post('/api/signup', (req, res) => {
     const id = req.body.id
